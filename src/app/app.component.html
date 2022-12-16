@@ -1,4 +1,4 @@
-<app-navbar></app-navbar>
+<app-navbar [isLogged]="authService.isLoggedIn()"></app-navbar>
 <div  style="height: 100%;">
     <router-outlet></router-outlet>
 </div>
