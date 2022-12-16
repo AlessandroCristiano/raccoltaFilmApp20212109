@@ -33,7 +33,7 @@
                     <div class="col-md-6">
                         <label>Password<span class="text-danger">*</span></label>
                         <input type="password" class="form-control" placeholder="Inserire la passwod" 
-                        required 
+                        required minlength="1"
                         pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{6,}"
                         
                             id="password" name="password" [(ngModel)]="utente.password" #passwordVar="ngModel"
