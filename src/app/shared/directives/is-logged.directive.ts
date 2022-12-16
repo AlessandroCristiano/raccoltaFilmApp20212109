@@ -2,7 +2,7 @@ import { Directive, ElementRef, Input } from '@angular/core';
 import { AuthService } from 'src/app/core/auth/auth.service';
 
 @Directive({
-  selector: '[isLogged]'
+  selector: '[isLogged]'  //il nome di questa deve essere uguale a sotto
 })
 export class IsLoggedDirective {
 

@@ -34,15 +34,14 @@
                         <label>Password<span class="text-danger">*</span></label>
                         <input type="password" class="form-control" placeholder="Inserire la passwod" 
                         required minlength="1"
-                        pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{6,}"
                         
                             id="password" name="password" [(ngModel)]="utente.password" #passwordVar="ngModel"
                             [ngClass]="{'is-invalid': passwordVar.invalid && passwordVar.dirty }">
                         <span class="invalid-feedback">
                             <span *ngIf="passwordVar.errors?.['required']">
-                                Npn si puo lasciare la password vuota
+                                Non si puo lasciare la password vuota
                             </span>
-                            <span *ngIf="passwordVar.errors?.['pattern']">
+                            <span *ngIf="passwordVar.errors?.['minlength']">
                                 La password deve erssere cosi composta
                                 <li>Almeno 6 caratteri</li>
                                 <li>Almeno una minuscola</li>
