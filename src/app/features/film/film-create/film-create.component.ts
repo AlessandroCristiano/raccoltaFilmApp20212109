@@ -27,7 +27,7 @@ export class FilmCreateComponent implements OnInit {
   save(filmForm: NgForm): void {
     console.log('sub ' + JSON.stringify(this.film));
     if (filmForm.valid) {
-      this.film.regista = {id:this.registaId};
+      //this.film.regista = {id:this.registaId};
       this.filmService.addFilm(this.film).subscribe({
         next: filmItem => {
           this.film = filmItem;

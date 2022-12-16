@@ -33,7 +33,7 @@
                                 <td>{{registaItem.cognome}}</td>
                                 <td>{{registaItem.nickName}}</td>
                                 <td>{{registaItem.dataDiNascita | date:'dd/MM/yyyy'}}</td>
-                                <td>{{registaItem.sesso}}</td>
+                                <td>{{registaItem.sesso | decodificaSesso}}</td>
                             </tr>
                         </tbody>
                     </table>

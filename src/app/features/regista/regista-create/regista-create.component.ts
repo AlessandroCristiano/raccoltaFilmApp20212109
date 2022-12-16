@@ -11,7 +11,7 @@ import { RegistaService } from '../regista.service';
 })
 export class RegistaCreateComponent implements OnInit {
 
-  regista: Regista = new Regista();
+  regista!: Regista;
   errorMessage: string = '';
 
   constructor(private registaService: RegistaService, private router: Router) { }
