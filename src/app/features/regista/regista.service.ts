@@ -22,6 +22,15 @@ export class RegistaService {
     return this.http.get<Regista[]>(this.apiServer)
   }
 
+   /** GET regista by id. Will 404 if id not found */
+   getRegista(id: number): Observable<Regista> {
+    const url = `${this.apiServer}/${id}`;
+    return this.http.get<Regista>(url).pipe(
+      tap(_ => console.log(`fetched Regista id=${id}`)),
+      catchError(this.handleError<Regista>(`getRegista id=${id}`))
+    );
+  }
+
   /** POST: add a new regista to the server */
   addRegista(registaInput: Regista): Observable<Regista> {
     return this.http.post<Regista>(this.apiServer, registaInput, this.httpOptions).pipe(

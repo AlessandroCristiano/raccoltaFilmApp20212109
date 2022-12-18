@@ -24,6 +24,7 @@
                                 <th>nickName</th>
                                 <th>Data di Nascita</th>
                                 <th>Sesso</th>
+                                <th>Azioni</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -34,6 +35,12 @@
                                 <td>{{registaItem.nickName}}</td>
                                 <td>{{registaItem.dataDiNascita | date:'dd/MM/yyyy'}}</td>
                                 <td>{{registaItem.sesso | decodificaSesso}}</td>
+                                <td><button
+                                    class="btn  btn-sm btn-outline-primary" [routerLink]="['/regista/detail', registaItem.id]">Visualizza</button>
+                                
+                                    <button class="btn  btn-sm btn-success" [routerLink]="['/regista/update', registaItem.id]">Edit</button>
+                                    <button class="btn  btn-sm btn-danger" [routerLink]="['/regista/delete', registaItem.id]">Delete</button>
+                                </td>
                             </tr>
                         </tbody>
                     </table>

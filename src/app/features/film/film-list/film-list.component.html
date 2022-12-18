@@ -23,6 +23,7 @@
                                 <th>Genere</th>
                                 <th>Data Pubblicazione</th>
                                 <th>Durata (min.)</th>
+                                <th>Azioni</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -32,6 +33,12 @@
                                 <td>{{filmItem.genere}}</td>
                                 <td>{{filmItem.dataPubblicazione | date:'dd/MM/yyyy'}}</td>
                                 <td>{{filmItem.minutiDurata}}</td>
+                                <td><button
+                                    class="btn  btn-sm btn-outline-primary" [routerLink]="['/film/detail', filmItem.id]">Visualizza</button>
+                                
+                                    <button class="btn  btn-sm btn-success" [routerLink]="['/film/update', filmItem.id]">Edit</button>
+                                    <button class="btn  btn-sm btn-danger" [routerLink]="['/film/delete', filmItem.id]">Delete</button>
+                                </td>
                             </tr>
                         </tbody>
                     </table>

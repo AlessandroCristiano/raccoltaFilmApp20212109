@@ -1,0 +1,58 @@
+<!-- Begin page content -->
+<main class="flex-shrink-0">
+    <div class="container">
+
+        <div class='card'>
+            <div class='card-header'>
+                Visualizza dettaglio
+            </div>
+
+            <div class='card-body'>
+                <dl class="row">
+                    <dt class="col-sm-3 text-right">Id:</dt>
+                    <dd class="col-sm-9">{{selectedRegista?.id}}</dd>
+                </dl>
+
+                <dl class="row">
+                    <dt class="col-sm-3 text-right">Nome:</dt>
+                    <dd class="col-sm-9">{{selectedRegista?.nome}}</dd>
+                </dl>
+
+                <dl class="row">
+                    <dt class="col-sm-3 text-right">Cognome:</dt>
+                    <dd class="col-sm-9">{{selectedRegista?.cognome}}</dd>
+                </dl>
+
+                <dl class="row">
+                    <dt class="col-sm-3 text-right">Nickname:</dt>
+                    <dd class="col-sm-9">{{selectedRegista?.nickName}}</dd>
+                </dl>
+
+                <dl class="row">
+                    <dt class="col-sm-3 text-right">Data di nascita:</dt>
+                    <dd class="col-sm-9">
+                        {{selectedRegista?.dataDiNascita | date:'dd/MM/yyyy'}}
+                    </dd>
+                </dl>
+
+                <dl class="row">
+                    <dt class="col-sm-3 text-right">Sesso:</dt>
+                    <dd class="col-sm-9">{{selectedRegista?.sesso}}</dd>
+                </dl>
+
+            
+            </div>
+
+            <div class='card-footer'>
+                <a routerLink="/regista/list" class='btn btn-outline-secondary'
+                    style='width:80px'>
+                    <i class='fa fa-chevron-left'></i> Back
+                </a>
+            </div>
+            <!-- end card -->
+        </div>
+
+        <!-- end container -->
+    </div>
+
+</main>

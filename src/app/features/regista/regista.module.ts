@@ -5,6 +5,7 @@ import { RegistaListComponent } from './regista-list/regista-list.component';
 import { RegistaCreateComponent } from './regista-create/regista-create.component';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { RegistaDetailComponent } from './regista-detail/regista-detail.component';
 
 const routes: Routes = [
   {
@@ -17,7 +18,7 @@ const routes: Routes = [
   },
   {
     path: 'detail/:id',
-    component: RegistaCreateComponent
+    component: RegistaDetailComponent
   },
   {
     path: '',
@@ -30,6 +31,7 @@ const routes: Routes = [
   declarations: [
     RegistaListComponent,
     RegistaCreateComponent,
+    RegistaDetailComponent,
   ],
   imports: [
     CommonModule,
