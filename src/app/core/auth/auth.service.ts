@@ -12,6 +12,8 @@ export class AuthService {
 
   private userLoggedSubject$: BehaviorSubject<utente | null> = new BehaviorSubject<utente | null>(null);
 
+  private apiServerForRoles = "http://localhost:8080/api/utente/userInfo";
+
   private apiServer = "http://localhost:8080/api/auth/login";
   private httpOptions = {
     headers: new HttpHeaders({
@@ -46,6 +48,10 @@ export class AuthService {
 
   logout() {
     this.setUserLogged(null);
+  }
+
+  roles(): Observable<{ roles: string[] }> {
+    return this.http.get<{ roles: string[] }>(this.apiServerForRoles);
   }
 
 }

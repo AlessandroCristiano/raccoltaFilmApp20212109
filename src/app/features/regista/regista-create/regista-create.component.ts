@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Regista } from 'src/app/model/regista';
+import { Sesso } from 'src/app/model/sesso';
 import { RegistaService } from '../regista.service';
 
 @Component({
@@ -11,7 +12,7 @@ import { RegistaService } from '../regista.service';
 })
 export class RegistaCreateComponent implements OnInit {
 
-  regista!: Regista;
+  regista: Regista = { nome: "", cognome:"", nickName: "", dataDiNascita: new Date(), sesso: Sesso.MASCHIO};
   errorMessage: string = '';
 
   constructor(private registaService: RegistaService, private router: Router) { }
