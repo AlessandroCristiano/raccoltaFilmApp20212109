@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Subject, takeUntil } from 'rxjs';
+import { map, Subject, switchMap, takeUntil, tap } from 'rxjs';
 import { utente } from 'src/app/model/utente';
 import { AuthService } from '../auth.service';
 
@@ -29,7 +29,16 @@ export class LoginComponent implements OnInit, OnDestroy{
 
   save(loginForm:NgForm):void{
     this.authService.login(loginForm.value).pipe(
-      takeUntil(this.destroy$))
+      tap(ele => this.authService.setUserLogged(ele)),
+      takeUntil(this.destroy$),
+      switchMap((ele: utente) => {
+        return this.authService.roles().pipe(
+          tap(ruoli => console.log(ruoli)),
+          map(ruoli => {
+            return {...ele, role: ruoli}
+          })
+        )
+      }))
     .subscribe(res=>{
       this.authService.setUserLogged(res);
       this.route.navigateByUrl("welcome");

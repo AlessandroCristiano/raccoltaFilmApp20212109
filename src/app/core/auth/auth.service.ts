@@ -42,6 +42,15 @@ export class AuthService {
     return this.userLoggedSubject$.value ? !!this.userLoggedSubject$.value.token : false;
   }
 
+  isAdmin(): boolean {
+    console.log(this.userLoggedSubject$.value)
+   if(this.userLoggedSubject$.value && this.userLoggedSubject$.value.role){
+    return this.userLoggedSubject$.value.role?.includes('ROLE_ADMIN');
+   }else{
+    return false;
+   }
+  }
+
   getUserToken(): string | null {
     return this.userLoggedSubject$.value ? this.userLoggedSubject$.value.token : null;
   }
@@ -50,8 +59,10 @@ export class AuthService {
     this.setUserLogged(null);
   }
 
-  roles(): Observable<{ roles: string[] }> {
-    return this.http.get<{ roles: string[] }>(this.apiServerForRoles);
+  roles(): Observable<string[]> {
+    return this.http.get<{ roles: string[] }>(this.apiServerForRoles).pipe(
+      map(res => res.roles)
+    );
   }
 
 }
